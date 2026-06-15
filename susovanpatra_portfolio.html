@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Susovan Patra — Voice AI & ML Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0a0f;
+    --bg2: #111118;
+    --bg3: #18181f;
+    --card: #1c1c24;
+    --border: rgba(255,255,255,0.07);
+    --border2: rgba(255,255,255,0.12);
+    --text: #f0f0f5;
+    --muted: #888897;
+    --accent: #7c6dfa;
+    --accent2: #a78bfa;
+    --accent3: #38d9a9;
+    --accent4: #f8961e;
+    --pill-bg: rgba(124,109,250,0.12);
+    --pill-text: #a78bfa;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 15px;
+  }
+
+  h1,h2,h3,h4 { font-family: 'Space Grotesk', sans-serif; }
+
+  a { color: var(--accent2); text-decoration: none; }
+  a:hover { color: var(--accent3); }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(10,10,15,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 56px;
+  }
+  .nav-logo { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 17px; color: var(--text); }
+  .nav-logo span { color: var(--accent2); }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a { font-size: 13px; color: var(--muted); font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--text); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 7rem 2rem 4rem;
+    max-width: 1100px; margin: 0 auto;
+    position: relative;
+  }
+  .hero-content { max-width: 680px; }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 500; letter-spacing: 0.08em;
+    color: var(--accent3); text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+  .hero-eyebrow::before {
+    content: ''; width: 24px; height: 1px; background: var(--accent3);
+  }
+  .hero h1 {
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    font-weight: 700; line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+  .hero h1 .gradient {
+    background: linear-gradient(135deg, #a78bfa, #38d9a9);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .hero-role {
+    font-size: 1.15rem; color: var(--muted); margin-bottom: 1.5rem; font-weight: 400;
+  }
+  .hero-summary {
+    font-size: 1rem; color: #b0b0c0; line-height: 1.75; margin-bottom: 2rem;
+    max-width: 580px;
+  }
+  .hero-stats {
+    display: flex; gap: 2.5rem; margin-bottom: 2.5rem;
+  }
+  .stat-item { }
+  .stat-num { font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; font-weight: 700; color: var(--text); }
+  .stat-num span { color: var(--accent2); }
+  .stat-label { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent); color: #fff;
+    padding: 0.65rem 1.5rem; border-radius: 8px;
+    font-size: 14px; font-weight: 500; transition: background 0.2s, transform 0.1s;
+    border: none; cursor: pointer;
+  }
+  .btn-primary:hover { background: #6c5ce7; color: #fff; transform: translateY(-1px); }
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 8px;
+    border: 1px solid var(--border2); color: var(--text);
+    padding: 0.65rem 1.5rem; border-radius: 8px;
+    font-size: 14px; font-weight: 500; transition: border-color 0.2s, transform 0.1s;
+  }
+  .btn-outline:hover { border-color: var(--accent2); color: var(--accent2); transform: translateY(-1px); }
+
+  /* SECTIONS */
+  section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--accent3);
+    margin-bottom: 0.5rem;
+  }
+  .section-title {
+    font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 700; margin-bottom: 0.5rem;
+  }
+  .section-subtitle { color: var(--muted); font-size: 0.95rem; margin-bottom: 3rem; }
+  .divider { width: 100%; height: 1px; background: var(--border); }
+
+  /* WHY HIRE ME */
+  .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+  .why-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.5rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .why-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+  .why-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+  .why-card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.4rem; }
+  .why-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+  /* SKILLS */
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+  .skill-category {
+    background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem 1.5rem;
+  }
+  .skill-category h3 { font-size: 0.8rem; font-weight: 600; color: var(--accent2); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.75rem; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    background: var(--pill-bg); color: var(--pill-text);
+    padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: 500;
+  }
+  .tag.teal { background: rgba(56,217,169,0.1); color: #38d9a9; }
+  .tag.amber { background: rgba(248,150,30,0.1); color: #f8961e; }
+  .tag.gray { background: rgba(255,255,255,0.06); color: var(--muted); }
+
+  /* EXPERIENCE */
+  .timeline { position: relative; padding-left: 1.5rem; }
+  .timeline::before {
+    content: ''; position: absolute; left: 0; top: 8px; bottom: 0;
+    width: 1px; background: var(--border);
+  }
+  .exp-item { position: relative; margin-bottom: 3rem; }
+  .exp-item::before {
+    content: ''; position: absolute; left: -1.5rem; top: 8px;
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--accent); border: 2px solid var(--bg);
+    transform: translateX(-3px);
+  }
+  .exp-header { margin-bottom: 0.5rem; }
+  .exp-role { font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; font-weight: 600; }
+  .exp-company { color: var(--accent2); font-size: 0.9rem; font-weight: 500; }
+  .exp-date { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .exp-projects { margin-top: 1rem; display: flex; flex-direction: column; gap: 1rem; }
+  .project-block {
+    background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.25rem;
+    transition: border-color 0.2s;
+  }
+  .project-block:hover { border-color: var(--border2); }
+  .project-block h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text); }
+  .project-block ul { padding-left: 1rem; }
+  .project-block ul li { font-size: 0.85rem; color: #a0a0b8; margin-bottom: 0.3rem; line-height: 1.6; }
+  .project-block ul li::marker { color: var(--accent3); }
+
+  /* PROJECTS */
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
+  .proj-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem;
+    display: flex; flex-direction: column; gap: 0.75rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .proj-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+  .proj-badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em;
+    padding: 3px 10px; border-radius: 20px;
+  }
+  .proj-badge.voice { background: rgba(56,217,169,0.1); color: #38d9a9; }
+  .proj-badge.ml { background: rgba(124,109,250,0.12); color: #a78bfa; }
+  .proj-badge.research { background: rgba(248,150,30,0.1); color: #f8961e; }
+  .proj-card h3 { font-size: 0.95rem; font-weight: 600; line-height: 1.4; }
+  .proj-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.65; flex: 1; }
+  .proj-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+  .proj-link { font-size: 12px; color: var(--accent2); font-weight: 500; display: flex; align-items: center; gap: 4px; }
+  .proj-link:hover { color: var(--accent3); }
+
+  /* METRICS */
+  .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-bottom: 3rem; }
+  .metric-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+    padding: 1.25rem; text-align: center;
+  }
+  .metric-num { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 700; color: var(--accent2); }
+  .metric-label { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+  /* EDUCATION & CERTS */
+  .edu-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+    padding: 1.25rem 1.5rem; margin-bottom: 0.75rem;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+  }
+  .edu-inst { font-weight: 600; font-size: 0.95rem; }
+  .edu-degree { font-size: 0.85rem; color: var(--muted); margin-top: 2px; }
+  .edu-cpi { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.1rem; color: var(--accent2); }
+  .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0.75rem; }
+  .cert-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+    padding: 1rem 1.25rem; display: flex; align-items: flex-start; gap: 10px;
+    transition: border-color 0.2s;
+  }
+  .cert-card:hover { border-color: var(--accent); }
+  .cert-icon { font-size: 1.2rem; margin-top: 2px; flex-shrink: 0; color: var(--accent4); }
+  .cert-name { font-size: 0.85rem; font-weight: 500; line-height: 1.4; }
+
+  /* CONTACT */
+  .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+  .contact-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+    padding: 1.25rem; display: flex; align-items: center; gap: 12px;
+    transition: border-color 0.2s, transform 0.2s; text-decoration: none;
+  }
+  .contact-card:hover { border-color: var(--accent2); transform: translateY(-2px); color: var(--text); }
+  .contact-icon { font-size: 1.3rem; color: var(--accent2); flex-shrink: 0; }
+  .contact-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+  .contact-val { font-size: 0.9rem; font-weight: 500; color: var(--text); }
+
+  /* FOOTER */
+  footer {
+    text-align: center; padding: 2rem; color: var(--muted); font-size: 13px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* SCROLL REVEAL */
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  @media (max-width: 640px) {
+    .hero-stats { flex-wrap: wrap; gap: 1.5rem; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Susovan<span>.</span></div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero" id="about">
+  <div class="hero-content">
+    <div class="hero-eyebrow">Available for new opportunities</div>
+    <h1>Susovan<br><span class="gradient">Patra</span></h1>
+    <div class="hero-role">Voice AI &amp; ML Engineer · IIT Kanpur</div>
+    <p class="hero-summary">
+      Building production-grade real-time speech systems, LLM applications, and multilingual AI pipelines.
+      2+ years turning complex AI research into scalable products — from sub-600ms voice agents to 60GB enterprise RAG systems.
+    </p>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">54<span>%</span></div>
+        <div class="stat-label">Latency reduction</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">10<span>k+</span></div>
+        <div class="stat-label">Calls processed/day</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">20<span>h</span></div>
+        <div class="stat-label">Synthetic TTS data/day</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">60<span>GB</span></div>
+        <div class="stat-label">Docs indexed</div>
+      </div>
+    </div>
+    <div class="hero-cta">
+      <a href="mailto:susovanpatra00@gmail.com" class="btn-primary">Get in touch</a>
+      <a href="https://github.com/susovanpatra00" class="btn-outline" target="_blank">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/susovanpatra/" class="btn-outline" target="_blank">LinkedIn ↗</a>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- WHY HIRE ME -->
+<section class="reveal">
+  <div class="section-label">Why Hire Me</div>
+  <h2 class="section-title">What I bring to the table</h2>
+  <p class="section-subtitle">Production experience, not just prototypes.</p>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">🎙️</div>
+      <h3>End-to-end Voice AI</h3>
+      <p>From ASR pipeline design to TTS fine-tuning — built real-time voice agents handling thousands of live calls daily.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">⚡</div>
+      <h3>Latency obsessed</h3>
+      <p>Reduced pipeline latency from 1.3s to under 600ms. Every millisecond matters in production voice systems.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🧠</div>
+      <h3>LLM & RAG expert</h3>
+      <p>Built RAG systems over 60GB+ enterprise data, M&A contract analysis tools, and real-time LLM inference pipelines.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🇮🇳</div>
+      <h3>Indic AI specialist</h3>
+      <p>Deep experience with Hindi, Tamil, and English multilingual systems and Indian accent TTS fine-tuning.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🏗️</div>
+      <h3>Systems thinker</h3>
+      <p>Designed self-improving data flywheels, no-code agent platforms, and scalable streaming architectures.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🎓</div>
+      <h3>IIT Kanpur M.Tech</h3>
+      <p>Strong CS fundamentals from one of India's top institutions, combined with hands-on production engineering.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SKILLS -->
+<section id="skills" class="reveal">
+  <div class="section-label">Skills Dashboard</div>
+  <h2 class="section-title">Tech stack</h2>
+  <p class="section-subtitle">Tools and technologies I use in production.</p>
+  <div class="skills-grid">
+    <div class="skill-category">
+      <h3>🎙 Speech &amp; Voice AI</h3>
+      <div class="skill-tags">
+        <span class="tag teal">ASR</span><span class="tag teal">TTS</span><span class="tag teal">Speaker Diarization</span>
+        <span class="tag teal">VAD (Silero)</span><span class="tag teal">Pipecat</span><span class="tag teal">Deepgram</span>
+        <span class="tag teal">pyannote</span><span class="tag teal">VibeVoice</span><span class="tag teal">Ultravox</span>
+        <span class="tag teal">WebRTC</span>
+      </div>
+    </div>
+    <div class="skill-category">
+      <h3>🧠 AI / ML</h3>
+      <div class="skill-tags">
+        <span class="tag">LLMs</span><span class="tag">RAG</span><span class="tag">LoRA/QLoRA</span>
+        <span class="tag">NLP</span><span class="tag">Fine-Tuning</span><span class="tag">Conversational AI</span>
+        <span class="tag">Sentiment Analysis</span><span class="tag">MLOps</span>
+      </div>
+    </div>
+    <div class="skill-category">
+      <h3>⚙️ Frameworks</h3>
+      <div class="skill-tags">
+        <span class="tag">PyTorch</span><span class="tag">Transformers</span><span class="tag">LangChain</span>
+        <span class="tag">LlamaIndex</span><span class="tag">Scikit-learn</span><span class="tag">TensorFlow</span>
+      </div>
+    </div>
+    <div class="skill-category">
+      <h3>🗄️ Vector DBs &amp; Search</h3>
+      <div class="skill-tags">
+        <span class="tag amber">Milvus</span><span class="tag amber">FAISS</span><span class="tag amber">ChromaDB</span>
+        <span class="tag amber">Pinecone</span><span class="tag amber">Semantic Search</span>
+      </div>
+    </div>
+    <div class="skill-category">
+      <h3>🔧 Backend &amp; Systems</h3>
+      <div class="skill-tags">
+        <span class="tag gray">FastAPI</span><span class="tag gray">Flask</span><span class="tag gray">WebSockets</span>
+        <span class="tag gray">Apache Pulsar</span><span class="tag gray">MongoDB</span><span class="tag gray">Cassandra</span>
+        <span class="tag gray">Streaming Systems</span>
+      </div>
+    </div>
+    <div class="skill-category">
+      <h3>☁️ MLOps &amp; Cloud</h3>
+      <div class="skill-tags">
+        <span class="tag gray">AWS (EC2, S3, Lambda, ECS)</span><span class="tag gray">Docker</span>
+        <span class="tag gray">MLflow</span><span class="tag gray">CI/CD</span><span class="tag gray">PM2</span>
+        <span class="tag gray">Hugging Face</span><span class="tag gray">Git</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- KEY METRICS -->
+<section class="reveal">
+  <div class="section-label">Impact</div>
+  <h2 class="section-title">By the numbers</h2>
+  <p class="section-subtitle">Measurable results from production systems.</p>
+  <div class="metrics-grid">
+    <div class="metric-card"><div class="metric-num">54%</div><div class="metric-label">Latency reduction in voice pipeline</div></div>
+    <div class="metric-card"><div class="metric-num">&lt;600ms</div><div class="metric-label">End-to-end voice agent latency</div></div>
+    <div class="metric-card"><div class="metric-num">10k+</div><div class="metric-label">Calls processed daily</div></div>
+    <div class="metric-card"><div class="metric-num">3</div><div class="metric-label">Languages: Hindi, English, Tamil</div></div>
+    <div class="metric-card"><div class="metric-num">20h</div><div class="metric-label">Synthetic TTS audio generated/day</div></div>
+    <div class="metric-card"><div class="metric-num">60GB+</div><div class="metric-label">Enterprise documents indexed</div></div>
+    <div class="metric-card"><div class="metric-num">100+</div><div class="metric-label">Companies served via RAG</div></div>
+    <div class="metric-card"><div class="metric-num">1 mo</div><div class="metric-label">Due diligence time saved (M&A)</div></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="reveal">
+  <div class="section-label">Work Experience</div>
+  <h2 class="section-title">Where I've worked</h2>
+  <p class="section-subtitle">Production AI engineering across Voice AI and enterprise ML.</p>
+  <div class="timeline">
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div class="exp-role">Voice AI Engineer</div>
+        <div class="exp-company">TeleCMI Communications</div>
+        <div class="exp-date">Sept 2025 — Present</div>
+      </div>
+      <div class="exp-projects">
+        <div class="project-block">
+          <h4>🎙 Real-Time Voice Agent System</h4>
+          <ul>
+            <li>Designed a real-time speech-to-speech voice agent under simulated concurrent load, achieving under 600ms end-to-end latency.</li>
+            <li>Reduced pipeline latency from 1.3s to under 600ms (54% reduction) via model optimization and pipeline parallelism on a single GPU.</li>
+          </ul>
+        </div>
+        <div class="project-block">
+          <h4>📊 Post-Call Analytics System</h4>
+          <ul>
+            <li>Built a multilingual post-call analytics system processing 7,000–10,000 calls/day across 3 languages (Hindi, English, Tamil), achieving 90% transcription accuracy with automatic language detection.</li>
+            <li>Applied NLP and LLM-based analysis to extract customer pain points, intents, and business-specific insights from transcripts.</li>
+          </ul>
+        </div>
+        <div class="project-block">
+          <h4>🏗️ No-Code Voice Agent Platform (Piopiy AI Studio)</h4>
+          <ul>
+            <li>Built a no-code AI voice agent platform enabling businesses to deploy production-ready phone voice agents via a visual flow builder with CRM integration.</li>
+            <li>Engineered a MongoDB-driven dynamic flow engine using Pipecat flows, supporting 11 LLM, 7 STT, and 15 TTS providers with zero code changes for new deployments.</li>
+            <li>Implemented real-time voice pipeline using WebRTC achieving under 2 seconds end-to-end latency on live calls, with streaming STT/TTS, VAD, and Indian accent support.</li>
+          </ul>
+        </div>
+        <div class="project-block">
+          <h4>🔄 Voice Data Generation &amp; Training Pipeline</h4>
+          <ul>
+            <li>Fine-tuned VibeVoice TTS for high-quality Indian accent synthesis, generating ~20 hours of synthetic audio daily via Hugging Face and Cassandra.</li>
+            <li>Built a self-improving data flywheel combining synthetic TTS output with studio recordings to continuously fine-tune VibeVoice and a separate production TTS model.</li>
+          </ul>
+        </div>
+        <div class="project-block">
+          <h4>🤖 Real-Time AI Assistant for Call Centre Agents</h4>
+          <ul>
+            <li>Engineered a real-time AI assistant using WebSocket-based audio ingestion and sub-second LLM inference to deliver contextual support and FAQs during live customer calls.</li>
+            <li>Built a low-latency RAG engine integrated with Milvus vector database and live pricing APIs, eliminating agent dependency on manual lookups.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div class="exp-role">AI/ML Engineer</div>
+        <div class="exp-company">Motherson Technology Services Limited</div>
+        <div class="exp-date">June 2024 — Sept 2025</div>
+      </div>
+      <div class="exp-projects">
+        <div class="project-block">
+          <h4>🔊 Speech Diarization &amp; Task Tracking</h4>
+          <ul>
+            <li>Developed a speech diarization and task-tracking system using pyannote-based speaker diarization and RAG, enabling multi-speaker segmentation and keyword-based task extraction from meeting audio.</li>
+            <li>Enabled natural language querying over segmented transcripts for efficient task retrieval using semantic search.</li>
+          </ul>
+        </div>
+        <div class="project-block">
+          <h4>💼 Confidential Knowledge Chatbot</h4>
+          <ul>
+            <li>Built a secure RAG system indexing 60+ GB of confidential documents across 100+ companies, achieving under 2.5s query latency.</li>
+            <li>Enabled centralized semantic search, reducing redundant efforts across 100+ group companies.</li>
+          </ul>
+        </div>
+        <div class="project-block">
+          <h4>📄 M&amp;A Contract Analysis</h4>
+          <ul>
+            <li>Automated comparison of 4+ legal contracts (200–300 pages each) using LLM-based analysis — extracting key clauses, summarizing sections, and flagging discrepancies, reducing due diligence by ~1 month.</li>
+            <li>Built a RAG-based contract chatbot enabling legal teams to query contracts in natural language without manual document search.</li>
+          </ul>
+        </div>
+        <div class="project-block">
+          <h4>🌐 47×47 Multilingual Enterprise Translator</h4>
+          <ul>
+            <li>Built and deployed a 47×47 multilingual translation system leveraging OpenAI and Helsinki-NLP/Opus models, supporting .txt, .docx, and .pdf formats with XML-based table structure preservation.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROJECTS -->
+<section id="projects" class="reveal">
+  <div class="section-label">Projects</div>
+  <h2 class="section-title">What I've built</h2>
+  <p class="section-subtitle">Side projects, research, and open-source work.</p>
+  <div class="projects-grid">
+
+    <div class="proj-card">
+      <span class="proj-badge voice">Voice AI</span>
+      <h3>Bolna Bhai: Modular Real-Time Voice Agent</h3>
+      <p>Orchestrator-based architecture decoupling ASR, LLM, and TTS components. Integrated Pipecat with WebSocket/WebRTC for low-latency speech pipelines and Qwen + AI4Bharat Indic Conformer for Indian language ASR.</p>
+      <div class="proj-tags">
+        <span class="tag teal">ASR</span><span class="tag teal">TTS</span><span class="tag">Pipecat</span><span class="tag">WebRTC</span><span class="tag">Qwen</span>
+      </div>
+      <a href="https://github.com/anand-therattil/Bolna_bhai" target="_blank" class="proj-link">View on GitHub ↗</a>
+    </div>
+
+    <div class="proj-card">
+      <span class="proj-badge research">Research</span>
+      <h3>Precise Position Using IMU Sensor Fusion &amp; ML</h3>
+      <p>Sensor fusion algorithm using accelerometer, compass, and ML for GPS-free position estimation. Achieved 20–30m accuracy over 4–6km distances. Sensor-agnostic design deployable on mobile phones.</p>
+      <div class="proj-tags">
+        <span class="tag amber">Sensor Fusion</span><span class="tag amber">ML</span><span class="tag gray">GPS-free</span>
+      </div>
+      <a href="https://scholar.google.com/citations?user=ggI0kmMAAAAJ&hl=en" target="_blank" class="proj-link">Guide: Dr. Amitangshu Pal ↗</a>
+    </div>
+
+    <div class="proj-card">
+      <span class="proj-badge ml">MLOps</span>
+      <h3>End-to-End Text Summarization with MLOps</h3>
+      <p>Flask web application for real-time text summarization. Fine-tuned Google Pegasus model with full MLOps pipeline. Average processing time under 3 seconds per document.</p>
+      <div class="proj-tags">
+        <span class="tag">Transformers</span><span class="tag">Pegasus</span><span class="tag gray">Flask</span><span class="tag gray">NLTK</span>
+      </div>
+      <a href="https://github.com/susovanpatra00/End-to-End-Text-Summarization" target="_blank" class="proj-link">View on GitHub ↗</a>
+    </div>
+
+    <div class="proj-card">
+      <span class="proj-badge ml">MLOps</span>
+      <h3>Wine Quality Prediction: End-to-End MLOps</h3>
+      <p>Complete ML pipeline with MLflow tracking, modular pipelines, Flask UI, Docker containerization, and AWS EC2 deployment. Full experiment management with DagsHub integration.</p>
+      <div class="proj-tags">
+        <span class="tag">MLflow</span><span class="tag gray">Docker</span><span class="tag gray">AWS EC2</span><span class="tag gray">Flask</span>
+      </div>
+      <a href="https://github.com/susovanpatra00/E2E_ML_Project" target="_blank" class="proj-link">View on GitHub ↗</a>
+    </div>
+
+    <div class="proj-card">
+      <span class="proj-badge ml">Computer Vision</span>
+      <h3>Real-Time Vehicle Detection with YOLOv8</h3>
+      <p>Fine-tuned YOLOv8 nano on custom traffic dataset. Achieved 92% precision, 93% recall, 97.5% mAP, and 76.5% F1 score for real-time traffic measurement.</p>
+      <div class="proj-tags">
+        <span class="tag">YOLOv8</span><span class="tag gray">OpenCV</span><span class="tag gray">Python</span>
+      </div>
+      <a href="https://github.com/susovanpatra00/YOLOv8-FineTuning-for-Traffic-Measurement" target="_blank" class="proj-link">View on GitHub ↗</a>
+    </div>
+
+    <div class="proj-card">
+      <span class="proj-badge voice">AI Agent</span>
+      <h3>Automated News Reporter using CrewAI</h3>
+      <p>AI-driven automated news reporting system using CrewAI with two specialized agents: a Senior Researcher (SerperDevTool) and a Writer (Gemini-1.5-Flash) for AI in healthcare coverage.</p>
+      <div class="proj-tags">
+        <span class="tag teal">CrewAI</span><span class="tag">Gemini</span><span class="tag gray">Agents</span>
+      </div>
+      <a href="https://github.com/susovanpatra00/News-Reporter-Using-CrewAI-Agents" target="_blank" class="proj-link">View on GitHub ↗</a>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EDUCATION & CERTS -->
+<section class="reveal">
+  <div class="section-label">Education</div>
+  <h2 class="section-title">Academic background</h2>
+  <p class="section-subtitle"></p>
+  <div class="edu-card">
+    <div>
+      <div class="edu-inst">Indian Institute of Technology, Kanpur</div>
+      <div class="edu-degree">M.Tech — Computer Science &amp; Engineering · 2022–2024</div>
+    </div>
+    <div class="edu-cpi">7.9 / 10</div>
+  </div>
+  <div class="edu-card">
+    <div>
+      <div class="edu-inst">Sister Nivedita University, Kolkata</div>
+      <div class="edu-degree">B.Tech — Computer Science &amp; Business Systems · 2018–2022</div>
+    </div>
+    <div class="edu-cpi">8.33 / 10</div>
+  </div>
+
+  <div style="margin-top: 3rem;">
+    <div class="section-label">Certifications</div>
+    <h2 class="section-title" style="margin-bottom: 1.5rem;">Certifications</h2>
+    <div class="cert-grid">
+      <a href="https://www.udemy.com/certificate/UC-a1a5c662-ff24-4129-93a1-b3dd37876638/" target="_blank" class="cert-card">
+        <div class="cert-icon">🏅</div>
+        <div class="cert-name">NLP — Natural Language Processing with Python</div>
+      </a>
+      <a href="https://www.udemy.com/certificate/UC-a528ed4c-9fd2-4d31-b160-8471b94d4c60/" target="_blank" class="cert-card">
+        <div class="cert-icon">🏅</div>
+        <div class="cert-name">Complete Generative AI Course with LangChain and Hugging Face</div>
+      </a>
+      <a href="https://coursera.org/share/c6dbbea5e5dae980caced07b308631f7" target="_blank" class="cert-card">
+        <div class="cert-icon">🏅</div>
+        <div class="cert-name">AWS Cloud Technical Essentials</div>
+      </a>
+      <a href="https://www.udemy.com/certificate/UC-b7f54add-0f77-4570-87c4-e78bc794c8e5/" target="_blank" class="cert-card">
+        <div class="cert-icon">🏅</div>
+        <div class="cert-name">Building Gen AI Apps — 12+ Hands-on Projects with Gemini Pro</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact" class="reveal">
+  <div class="section-label">Contact</div>
+  <h2 class="section-title">Let's talk</h2>
+  <p class="section-subtitle">Open to Voice AI, ML Engineering, and LLM roles. Based in India.</p>
+  <div class="contact-grid">
+    <a href="mailto:susovanpatra00@gmail.com" class="contact-card">
+      <div class="contact-icon">✉️</div>
+      <div><div class="contact-label">Email</div><div class="contact-val">susovanpatra00@gmail.com</div></div>
+    </a>
+    <a href="tel:+918597253561" class="contact-card">
+      <div class="contact-icon">📞</div>
+      <div><div class="contact-label">Phone</div><div class="contact-val">+91-8597253561</div></div>
+    </a>
+    <a href="https://www.linkedin.com/in/susovanpatra/" target="_blank" class="contact-card">
+      <div class="contact-icon">💼</div>
+      <div><div class="contact-label">LinkedIn</div><div class="contact-val">Susovan Patra</div></div>
+    </a>
+    <a href="https://github.com/susovanpatra00" target="_blank" class="contact-card">
+      <div class="contact-icon">🐙</div>
+      <div><div class="contact-label">GitHub</div><div class="contact-val">susovanpatra00</div></div>
+    </a>
+    <a href="https://wa.me/918597253561" target="_blank" class="contact-card">
+      <div class="contact-icon">💬</div>
+      <div><div class="contact-label">WhatsApp</div><div class="contact-val">+91-8597253561</div></div>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <p>Susovan Patra · Voice AI &amp; ML Engineer · IIT Kanpur</p>
+  <p style="margin-top: 4px;">Built with HTML/CSS · Host on GitHub Pages</p>
+</footer>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.1 });
+reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
